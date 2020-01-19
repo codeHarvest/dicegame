@@ -28,7 +28,7 @@ function rollDice(){
 
         dice.style.display = 'block'; 
         
-        dice.src = `dice-${diceValue}.png`;
+        dice.src = `assets/dice-${diceValue}.png`;
     
         if(diceValue !== 1){
             roundScore += diceValue;
@@ -42,17 +42,20 @@ function rollDice(){
 }
 
 function holdScore(){
-    if(isGameOn){
+    if (isGameOn) {
+
         scores[activePlayer] += roundScore;
 
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-        if(scores[activePlayer] >= 100){
-            document.querySelector('#name-' + activePlayer).textContent = 'winner!';
+        if (scores[activePlayer] >= 100) {
+            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
             isGameOn = false;
+        } else {
+            nextPlayer();
         }
     }
 }
@@ -73,8 +76,7 @@ function init(){
     document.getElementById('current-1').textContent = '0';
     document.querySelector('.player-0-panel').classList.remove('winner');
     document.querySelector('.player-1-panel').classList.remove('winner');
-    document.querySelector('.player-0-panel').classList.remove('active');
-    document.querySelector('.player-1-panel').classList.remove('active');
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('active');
             
     
     var player1 = prompt('Before we start the game enter your name Player 1');

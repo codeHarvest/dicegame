@@ -1,4 +1,4 @@
-![Dice Game](game.png)
+![Dice Game](assets/game.png)
 
 ## GAME RULES:
 
