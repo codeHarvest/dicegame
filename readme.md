@@ -1,3 +1,5 @@
+https://codeharvest.github.io/dicegame/
+
 ![Dice Game](assets/game.png)
 
 ## GAME RULES:
